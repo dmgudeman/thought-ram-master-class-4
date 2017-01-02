@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import 'rxjs/add/operator/map';
@@ -6,17 +6,15 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ContactsService {
 
-  private API_ENDPOINT = 'http://localhost:4201/api';
-
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, @Inject('API_ENDPOINT') private apiEndpoint) {}
 
   getContact (id: string) {
-    return this.http.get<any>(`${this.API_ENDPOINT}/contacts/${id}`)
+    return this.http.get<any>(`${this.apiEndpoint}/contacts/${id}`)
                     .map(data => data.item);
   }
 
   getContacts () {
-    return this.http.get<any>(`${this.API_ENDPOINT}/contacts`)
+    return this.http.get<any>(`${this.apiEndpoint}/contacts`)
                     .map(data => data.items);
   }
 }
