@@ -1,5 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Contact } from './models/contact';
 
 import { API_ENDPOINT } from './app.tokens';
 
@@ -18,5 +19,10 @@ export class ContactsService {
   getContacts () {
     return this.http.get<any>(`${this.apiEndpoint}/contacts`)
                     .map(data => data.items);
+  }
+
+  updateContact(contact: Contact) {
+    return this.http.put<any>(`${this.apiEndpoint}/contacts/${contact.id}`, contact)
+                    .map(data => data.item);
   }
 }
