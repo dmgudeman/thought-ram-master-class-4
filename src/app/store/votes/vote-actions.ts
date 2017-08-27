@@ -8,8 +8,11 @@ export interface Action {
 }
 
 
-export function VoteYes() {
-  return {
-  type: 
-  }
+export function VoteYesAction() {
+  return { type: VoteActions.YES
+}
+}
+export function VoteNoAction() {
+  return { type: VoteActions.NO
+}
 }
