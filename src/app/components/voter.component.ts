@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { Store } from '../store/store';
 import { ApplicationState } from '../store/root.reducer';
 import { APP_STORE } from '../store/app-store';
-import { VoteActions } from '../store/votes/vote-actions'
+import { VoteActions } from '../store/votes/vote-actions';
 
 @Component({
   selector: 'trm-voter',
@@ -13,7 +13,7 @@ import { VoteActions } from '../store/votes/vote-actions'
       </button>
 
       <ng-content></ng-content>
-      
+
       <button md-fab class="no" mdTooltip="Vote No!" (click)="decrement()">
         <md-icon class="md-24">thumb_down</md-icon>
       </button>
@@ -29,7 +29,7 @@ export class VoterComponent {
   /**
    * Inject the appstore
    */
-  constructor(@Inject(APP_STORE) private store: Store<ApplicationState>) { 
+  constructor(@Inject(APP_STORE) private store: Store<ApplicationState>) {
   }
 
   private increment() {

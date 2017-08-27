@@ -1,14 +1,4 @@
-
-
-
-export class VoteActions {
-
-VoteActions = {
-    NO: 'NO',
-    YES: 'YES'
+export const VoteActions = {
+    NO: "NO",
+    YES: "YES"
   };
-  
-
-
-  
-}

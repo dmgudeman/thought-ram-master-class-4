@@ -13,8 +13,6 @@ import { DashboardComponent } from "./components/dashboard.component";
 import { VoterComponent } from "./components/voter.component";
 import { StatusComponent } from "./components/status.component";
 
-
-
 @NgModule({
   imports: [
     BrowserModule,

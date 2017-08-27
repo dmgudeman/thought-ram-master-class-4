@@ -1,6 +1,7 @@
+export interface VotesState { 
+  counter : number 
+}
 
-
-
-export interface VoteState { counter : number }
-
-export const INITIAL_VOTES_STATE : VoteState = { counter : 0 };
+export const INITIAL_VOTES_STATE : VotesState = { 
+  counter : 0 
+};

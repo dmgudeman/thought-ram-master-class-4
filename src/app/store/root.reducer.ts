@@ -1,12 +1,10 @@
-
-import { voteReducer}  from './votes/vote-reducer'
-import { VoteState }        from './votes/vote-state';
-
+import { voteReducer} from './votes/vote-reducer'
+import { VotesState } from './votes/vote-state';
 
 export interface ApplicationState {
-  votes: VoteState
+  votes: VotesState
 }
 
 export const ROOT_REDUCER = {
-  votes : voteReducer,
-}
+  votes : voteReducer
+};
