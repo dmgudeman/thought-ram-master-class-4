@@ -3,6 +3,11 @@
  * support the dispatch(), subscribe() methods and
  * use reducers to process actions with immutable instances
  */
+export const VoteActions = {
+  NO : "NO",
+  YES : "YES"
+};
+
 export class AppStore {
 
   /**
@@ -39,8 +44,10 @@ export class AppStore {
    */
   protected reducer(state, action){
     switch(action) {
-      default : return state;
+      case VoteActions.YES:
+      case VoteActions.NO:
     }
+    return state
   }
 
   protected listeners = [];

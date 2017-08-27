@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppStore } from '../store/app-store';
+import { VoteActions } from '../store/app-store'
 
 @Component({
   selector: 'trm-voter',
@@ -29,11 +30,11 @@ export class VoterComponent {
   constructor(private store: AppStore) { }
 
   private increment() {
-    // @Todo - dispatch action to the store
+    this.store.dispatch(VoteActions.YES);
   }
 
   private decrement() {
-    // @Todo - dispatch action to the store
+    this.store.dispatch(VoteActions.NO);
   }
 }
 
