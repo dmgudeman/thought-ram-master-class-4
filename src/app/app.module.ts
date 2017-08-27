@@ -13,6 +13,8 @@ import { DashboardComponent } from "./components/dashboard.component";
 import { VoterComponent } from "./components/voter.component";
 import { StatusComponent } from "./components/status.component";
 
+import { APP_STORE, APP_STORE_PROVIDER, appStoreFactory }        from './store/app-store';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -28,7 +30,7 @@ import { StatusComponent } from "./components/status.component";
     VoterComponent,
     StatusComponent
   ],
-  // providers: [AppStore],
+  providers: [APP_STORE_PROVIDER],
   bootstrap: [AppComponent]
 })
 export class AppModule {
