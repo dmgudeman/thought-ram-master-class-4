@@ -1,10 +1,10 @@
 import { Action, VoteActions } from './vote-actions';
-import { INITIAL_VOTES_STATE } from './vote-state';
+import { INITIAL_VOTES_STATE } from 'app/store/votes/vote-state';
 import { VotesState } from './vote-state';
 
 /**
-* Use the custom actions to update the counter state!
-*/
+ * Use the custom actions to update the counter state!
+ */
 export function voteReducer(state: VotesState = INITIAL_VOTES_STATE, action: Action) {
   switch (action.type) {
     case VoteActions.NO  :  return {...state, counter: state.counter - 1};

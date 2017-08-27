@@ -1,5 +1,5 @@
 import { InjectionToken } from '@angular/core';
-import {  createStore, Store, combineReducers } from 'redux';
+import { createStore, Store, combineReducers } from 'redux';
 import { ApplicationState, ROOT_REDUCER } from './root.reducer';
 
 export function appStoreFactory(): Store<ApplicationState> {

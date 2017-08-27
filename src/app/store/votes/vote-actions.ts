@@ -1,18 +1,16 @@
 export const VoteActions = {
-    NO: "NO",
-    YES: "YES"
-  };
+  NO: "NO",
+  YES: "YES"
+};
 
 export interface Action {
-  type: any;
+  type: string;
 }
 
 
-export function VoteYesAction() {
-  return { type: VoteActions.YES
+export function voteYesAction() {
+  return { type: VoteActions.YES }
 }
-}
-export function VoteNoAction() {
-  return { type: VoteActions.NO
-}
+export function voteNoAction() {
+  return { type: VoteActions.NO }
 }

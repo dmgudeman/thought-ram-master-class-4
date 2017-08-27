@@ -33,13 +33,13 @@ export class VoterComponent {
   }
 
   private increment() {
-    this.store.dispatch({ type: voteYesAction });
+    this.store.dispatch({ type: voteYesAction() });
     
     
   }
 
   private decrement() {
-    this.store.dispatch({ type: voteNoAction });
+    this.store.dispatch({ type: voteNoAction() });
   }
 }
 
