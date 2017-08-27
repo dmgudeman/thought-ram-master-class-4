@@ -6,13 +6,13 @@ import { VoteActions } from '../store/app-store'
   selector: 'trm-voter',
   template: `
     <div fxLayout="column" fxLayoutAlign="space-between center" fxFlex style="padding-left:10px;">
-      <button md-fab class="yes" mdTooltip="Vote Yes!">
+      <button md-fab class="yes" mdTooltip="Vote Yes!" (click)="increment()">
         <md-icon class="md-24">thumb_up</md-icon>
       </button>
 
       <ng-content></ng-content>
 
-      <button md-fab class="no" mdTooltip="Vote No!">
+      <button md-fab class="no" mdTooltip="Vote No!" (click)="decrement()">
         <md-icon class="md-24">thumb_down</md-icon>
       </button>
     </div>
