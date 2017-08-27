@@ -1,4 +1,4 @@
-import { voteReducer} from './votes/vote-reducer'
+import { voteReducer} from './votes/vote-reducer';
 import { VotesState } from './votes/vote-state';
 
 export interface ApplicationState {
