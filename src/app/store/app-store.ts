@@ -45,7 +45,12 @@ export class AppStore {
   protected reducer(state, action){
     switch(action) {
       case VoteActions.YES:
+          state = {...state, counter: state.counter + 1};
+          break;
+         
       case VoteActions.NO:
+          state = {...state, counter: state.counter - 1};
+          break;
     }
     return state
   }
