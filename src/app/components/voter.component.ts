@@ -10,7 +10,7 @@ import { AppStore, VoteActions } from '../store/app-store';
       </button>
 
       <ng-content></ng-content>
-
+      
       <button md-fab class="no" mdTooltip="Vote No!" (click)="decrement()">
         <md-icon class="md-24">thumb_down</md-icon>
       </button>
