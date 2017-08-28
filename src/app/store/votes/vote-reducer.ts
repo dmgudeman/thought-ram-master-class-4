@@ -2,13 +2,9 @@ import { Action, VoteActions } from './vote-actions';
 import { INITIAL_VOTES_STATE } from 'app/store/votes/vote-state';
 import { VotesState } from './vote-state';
 
-/**
- * Use the custom actions to update the counter state!
- */
-export function voteReducer(state: VotesState = INITIAL_VOTES_STATE, action: Action) {
+export function voteReducer(state:VotesState = INITIAL_VOTES_STATE, action:Action) {
   switch (action.type) {
-    case VoteActions.NO  :  return {...state, counter: state.counter - 1};
-    case VoteActions.YES :  return {...state, counter: state.counter + 1};
-    default              :  return state;
+ case VoteActions.VOTES_LOADED : return {...state, counter: action.counter };
+ default                       : return state;
   }
 }
