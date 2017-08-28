@@ -6,19 +6,19 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
 
 import { ContactsAppComponent } from './app.component';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
 import { ContactsDetailComponent } from './contacts-detail/contacts-detail.component';
 import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
-import { StoreModule } from '@ngrx/store';
 
 import { ContactsService } from './contacts.service';
 
 import { APP_ROUTES } from './app.routes';
 import { API_ENDPOINT } from './app.tokens';
 
-import { ROOT_REDUCER } from './state-management/';
+import { ROOT_REDUCER } from './state-management';
 
 @NgModule({
   declarations: [
@@ -34,8 +34,8 @@ import { ROOT_REDUCER } from './state-management/';
     FlexLayoutModule,
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
-    FormsModule,
-    StoreModule.forRoot(ROOT_REDUCER)
+    StoreModule.forRoot(ROOT_REDUCER),
+    FormsModule
   ],
   providers: [
     ContactsService,
