@@ -2,13 +2,28 @@ import { Action } from '@ngrx/store';
 import { Contact } from '../../models/contact';
 
 export enum ContactsActionTypes {
-   LOAD_CONTACTS_SUCCESS = '[Contacts] Load Contacts Success' 
+   LOAD_CONTACTS_SUCCESS = '[Contacts] Load Contacts Success',
+   UPDATE_CONTACT = 'Update contact',
+   SELECT_CONTACT = 'Select contact'
 }
 
 export class LoadContactsSuccessAction implements Action {
   readonly type = ContactsActionTypes.LOAD_CONTACTS_SUCCESS;
-  
+
   constructor(public payload: Array<Contact>){}
 }
 
-export type ContactsActions = LoadContactsSuccessAction;
+export class SelectContactAction implements Action {
+  readonly type = ContactsActionTypes.SELECT_CONTACT;
+
+  constructor(public payload: Contact){}
+
+}
+
+export class UpdateContactAction implements Action {
+  readonly type = ContactsActionTypes.UPDATE_CONTACT;
+  constructor(public payload: Contact){}
+}
+
+export type ContactsActions = LoadContactsSuccessAction
+  | SelectContactAction | UpdateContactAction;
