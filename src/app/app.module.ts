@@ -11,12 +11,13 @@ import { ContactsAppComponent } from './app.component';
 import { ContactsListComponent } from './contacts-list/contacts-list.component';
 import { ContactsDetailComponent } from './contacts-detail/contacts-detail.component';
 import { ContactsEditorComponent } from './contacts-editor/contacts-editor.component';
+import { StoreModule } from '@ngrx/store';
 
 import { ContactsService } from './contacts.service';
 
 import { APP_ROUTES } from './app.routes';
 import { API_ENDPOINT } from './app.tokens';
-import { StoreModule } from '@ngrx/store';
+
 import { ROOT_REDUCER } from './state-management/root-reducer';
 
 @NgModule({
@@ -34,9 +35,9 @@ import { ROOT_REDUCER } from './state-management/root-reducer';
     RouterModule.forRoot(APP_ROUTES),
     HttpClientModule,
     FormsModule,
-    StoreModule.forRoot(ROOT_REDUCER, {})
+    StoreModule.forRoot(ROOT_REDUCER)
   ],
-  providers: 
+  providers: [
     ContactsService,
     { provide: API_ENDPOINT, useValue: 'http://localhost:4201/api' }
   ],

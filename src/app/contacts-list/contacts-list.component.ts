@@ -3,8 +3,8 @@ import { Observable } from 'rxjs/Observable';
 import { Contact } from '../models/contact';
 import { ContactsService } from '../contacts.service';
 import { Store } from '@ngrx/store';
-// import { ApplicationState } from
-import { LoadContactsSuccessAction } from '../state-management/contacts/contacts.actions'
+import { ApplicationState } from '../state-management';
+import { LoadContactsSuccessAction } from '../state-management/contacts/contacts.actions';
 
 @Component({
   selector: 'trm-contacts-list',
@@ -12,23 +12,15 @@ import { LoadContactsSuccessAction } from '../state-management/contacts/contacts
   styleUrls: ['./contacts-list.component.css']
 })
 export class ContactsListComponent implements OnInit {
-
-
   contacts$: Observable<Array<Contact>>;
 
-  constructor(private contactsService: ContactsService,
-      private store: Store<ApplicationState>) {}
+  constructor(private store: Store<ApplicationState>, private contactsService: ContactsService) { }
 
-  ngOnInit () {
-    let query = (state) => state.contacts.list;
-    this.contacts$ = this.store.select(query);
-    this.contactsService
-        .getContacts()
-        .subscribe(contacts => {
-          this.store.dispatch(
-            new LoadContactsSuccessAction(contacts)
-          );
-        });
+  ngOnInit() {
+    this.contacts$ = this.store.select(state => state.contacts.list);
+
+    this.contactsService.getContacts()
+      .subscribe(contacts => this.store.dispatch(new LoadContactsSuccessAction(contacts)));
   }
 
   trackByContactId(index, contact) {
