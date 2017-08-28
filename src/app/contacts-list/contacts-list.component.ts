@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Contact } from '../models/contact';
 import { ContactsService } from '../contacts.service';
+import { Store } from '@ngrx/store';
+// import { ApplicationState } from
+import { LoadContactsSuccessAction } from '../state-management/contacts/contacts.actions'
 
 @Component({
   selector: 'trm-contacts-list',
@@ -10,12 +13,22 @@ import { ContactsService } from '../contacts.service';
 })
 export class ContactsListComponent implements OnInit {
 
-  contacts: Observable<Array<Contact>>;
 
-  constructor(private contactsService: ContactsService) {}
+  contacts$: Observable<Array<Contact>>;
+
+  constructor(private contactsService: ContactsService,
+      private store: Store<ApplicationState>) {}
 
   ngOnInit () {
-    this.contacts = this.contactsService.getContacts();
+    let query = (state) => state.contacts.list;
+    this.contacts$ = this.store.select(query);
+    this.contactsService
+        .getContacts()
+        .subscribe(contacts => {
+          this.store.dispatch(
+            new LoadContactsSuccessAction(contacts)
+          );
+        });
   }
 
   trackByContactId(index, contact) {
