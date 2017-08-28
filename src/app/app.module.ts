@@ -18,7 +18,7 @@ import { ContactsService } from './contacts.service';
 import { APP_ROUTES } from './app.routes';
 import { API_ENDPOINT } from './app.tokens';
 
-import { ROOT_REDUCER } from './state-management/root-reducer';
+import { ROOT_REDUCER } from './state-management/';
 
 @NgModule({
   declarations: [
